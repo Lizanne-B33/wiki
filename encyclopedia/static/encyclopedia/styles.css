@@ -1,44 +1,59 @@
 body {
-    margin: 0;
-    background-color: white;
+  margin: 0;
+  background-color: white;
 }
 
 code {
-    white-space: pre;
+  white-space: pre;
 }
 
 h1 {
-    margin-top: 0px;
-    padding-top: 20px;
+  margin-top: 0px;
+  padding-top: 20px;
 }
 
 textarea {
-    height: 90vh;
-    width: 80%;
+  height: 50vh;
+  width: 80%;
 }
 
 .main {
-    padding: 10px;
+  padding: 10px;
 }
 
 .search {
-    width: 100%;
-    font-size: 15px;
-    line-height: 15px;
+  width: 80%;
+  font-size: 15px;
+  line-height: 15px;
 }
 
 .sidebar {
-    background-color: #f0f0f0;
-    height: 100vh;
-    padding: 20px;
+  background-color: #f0f0f0;
+  height: 80vh;
+  padding-left: 40px;
+  padding-top: 20px;
 }
 
 .sidebar h2 {
-    margin-top: 5px;
+  margin-top: 5px;
 }
-.edit_btn{
-    padding: 5px;
-    background-color: lightslategray;
-    color:antiquewhite;
-    
+.edit_btn {
+  padding: 5px;
+  background-color: lightslategray;
+  color: antiquewhite;
+  border-radius: 4px;
+  border-color: darkolivegreen;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 4px 4px 10px gray;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    height: 50vh;
+  }
+  .main {
+    margin-top: -20px;
+    margin-left: 20px;
+  }
 }
