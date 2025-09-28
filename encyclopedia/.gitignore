@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+pip-wheel-metadata/
+
+# Django
+db.sqlite3
+*.sqlite3
+*.db
+*.db-journal
+media/
+staticfiles/
+local_settings.py
+settings_local.py
+
+# VS Code
+.vscode/
+.history/
+
+# EditorConfig backup
+.editorconfig.sav
+
+# Misc
+*.bak
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db

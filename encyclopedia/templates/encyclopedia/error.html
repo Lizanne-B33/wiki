@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}Encyclopedia{% endblock %}
+
+{% block body %}
+
+    <h1>I'm sorry!</h1>
+    <br>
+    <p>Looks like something went wrong.</p>
+    <a href="{% url 'wiki-index' %}" class="btn btn-link">Please try again</a>
+
+{% endblock %}

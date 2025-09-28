@@ -1,0 +1,18 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}{{ my_title|safe }}{% endblock %}
+
+{% block body %}
+    <h1>Add New Entry</h1>
+    <div class="add_form">
+        <form action="{% url 'wiki-add' %}" method="post">
+            {% csrf_token %}
+            <br />
+            {{ form.my_title }}
+            <input type="submit" value="Submit" />
+            <br />
+            <br />
+            {{ form.my_markdown_data }}
+        </form>
+    </div>
+{% endblock %}
