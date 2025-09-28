@@ -1,0 +1,23 @@
+Title: CSCI E-33a Project 1: Wiki
+
+Author: Elizabeth Bradshaw
+
+Description: This project involves expanding on the provided Django project called wiki. This project has one application called encyclopedia and a directory of markdown files (*.md) in a entries directory.  The specification requires us to build out this skeleton project with functionality to Create, Update or Read each encyclopedia entry via the associated util function. Additionally, there is a search capabilty where the user can search for an entry.  If a there is an exact match, the user is presented with a display of the entry.  If there is a 'close match' then the user gets a list of options to select from.  And if there is no match, the user is advised, and offered a way to 'try again'. 
+
+Installation: Requirments.txt is part of this project. 
+
+Usage: The opening page (wiki/index) provides a navigation bar on the right side of the screen. The User Interface provides links and input boxes for the view, search, create and edit functionality. 
+--The left-hand navigation bar has a search capability where the user can enter a string and click submit to see either a direct match, or be provided a list of possible matches each with a link to see them.  Or if there are no, matches, this is also communciated to them through a page with a link to try agian.  
+--There are three links on the navigation bar, Home, Create New Page, and Random Page.  The functionality is self described. A check for duplicates exists so that a user can not create a record with the same name as one that already exists.  Otherwise there are no restrictions to creating a record.  There is code in the title entry where any spaces are replaced with underscores based on file structure standards. 
+--In the main section when at the home page renders a list of all .md files in the entries directory. Clicking on a hyperlink will open a view of the page, which offeres yet more functionality where the user can modify the content.  Modifications are then saved back to the file.  
+
+Contributing: This is a classroom project intended for learning Django and the associated coding languages, techniques and structures. 
+
+License: No License necessary.
+
+Help received from: Extensive use of CS50.ai, realpython.com, djangoproject.com, GeeksforGeeks.com, python.org, W3Schools.com, hostinger.com as well as various other google type searches.
+Specific tutorials: 
+--https://realpython.com/django-markdown/, 
+--https://www.learningaboutelectronics.com/Articles/How-to-randomly-select-shuffle-list-in-Python.php, 
+--https://runebook.dev/en/articles/django/ref/forms/widgets/django.forms.Textarea#google_vignette
+--https://docs.djangoproject.com/en/5.2/intro/tutorial01/-.. tutorial04/
