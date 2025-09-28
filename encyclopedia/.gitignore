@@ -1,3 +1,6 @@
+# This file is to provide a list of document types and files
+# that should not be uploaded to GitHub.
+
 # Python
 __pycache__/
 *.py[cod]

@@ -1,5 +1,11 @@
-from django.urls import path
+# This file defines the URLs that are used by the application.
+# The URL path takes three attributes.  The URL path, what view is called
+# when the mapped URL exists, and a name of the URL path which is called by
+# the templates to create links to specific views.  They are also used in the
+# view code to reverse-resolve URLS (generating a URL from a view name and
+# its parameters).
 
+from django.urls import path
 from . import views
 
 urlpatterns = [

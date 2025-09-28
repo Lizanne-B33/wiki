@@ -1,3 +1,8 @@
+# An .editorconfig file is used to define coding style rules for different file
+# types in a project. This helps maintain consistent formatting across different
+# editors and IDEs. The file typically includes settings like indentation style,
+# line endings, and character encoding.
+
 # Top-level configuration
 root = true
 

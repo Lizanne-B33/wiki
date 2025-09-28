@@ -13,11 +13,10 @@ def index(request):
 
 
 def single_entry_view(request, filename):
-    ###
     # This function handles the display of a single entry.
     # If the entry exists, it renders the entry page.
     # If not, it renders the entry not found page.
-    ###
+
     my_title = filename.rsplit(".", 1)[0]
     try:
         markdown_content = util.get_entry(my_title)
@@ -35,13 +34,12 @@ def single_entry_view(request, filename):
 
 
 def search_view(request):
-    ###
     # This function handles the search capability of the application .
     # If the search value exists, it renders the entry page.
     # If the user enters a partial (ex. oth) then entries with that value
     # as part of the title will be listed with a hyperlink to display the entry.
     # If the user enters a value not in the list, it renders the "oops" page.
-    ###
+
     my_criteria = request.GET.get("q")
     exists = util.get_entry(my_criteria)
     if exists == None:
@@ -66,6 +64,8 @@ def search_view(request):
 
 
 def add_view(request):
+    # This function renders the entry_form so that the user can add a new entry.
+    # If this is a POST request then process the Form data
 
     if request.method == "POST":
         my_form = forms.EntryForm(request.POST)
@@ -92,6 +92,10 @@ def add_view(request):
 
 
 def edit_view(request, filename):
+    # This function renders the entry_form so that the user can add a new entry.
+    # If this is a POST request then process the Form data, else it renders
+    # the form for the user to input data with the existing content ready for edit.
+
     my_title = filename
 
     if request.method == "POST":
@@ -116,6 +120,9 @@ def edit_view(request, filename):
 
 
 def random_view(request):
+    # This function calls the random utility and displays one record at a time
+    # in random order.
+
     my_title = util.random_entry()
     markdown_content = util.get_entry(my_title)
     html_content = markdown.markdown(markdown_content)
