@@ -37,8 +37,20 @@ textarea {
 .sidebar h2 {
   margin-top: 5px;
 }
-.edit_btn {
+.edit_btn{
   padding: 5px;
+  background-color: lightslategray;
+  color: antiquewhite;
+  border-radius: 4px;
+  border-color: darkolivegreen;
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: 4px 4px 10px gray;
+}
+
+.submit_btn{
+  margin-top: 5px;
+  margin-bottom: 10px;
   background-color: lightslategray;
   color: antiquewhite;
   border-radius: 4px;

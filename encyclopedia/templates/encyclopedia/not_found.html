@@ -1,6 +1,6 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}Encyclopedia{% endblock %}
+{% block title %} Encyclopedia {% endblock title %}
 
 {% block body %}
 
@@ -9,4 +9,4 @@
     <p>The entry for "{{ my_title }}" does not exist.</p>
     <a href="{% url 'wiki-index' %}" class="btn btn-link">Please try again</a>
 
-{% endblock %}
+{% endblock body %}

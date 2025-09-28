@@ -1,6 +1,6 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}Encyclopedia{% endblock %}
+{% block title %}Encyclopedia{% endblock title %}
 
 {% block body %}
 
@@ -9,4 +9,4 @@
   <p>The entry for "{{ title|safe }}" has been created.</p>
   <a href="{% url "single_entry" filename=title %}" class="btn btn-link">Click link to see the entry.</a>
 
-{% endblock %}
+{% endblock body %}

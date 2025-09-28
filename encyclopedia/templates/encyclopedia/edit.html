@@ -1,15 +1,15 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}{{ my_title|safe }}{% endblock %}
+{% block title %} {{ my_title|safe }} {% endblock title %}
 
 {% block body %}
     <h1>Edit Entry</h1>
     <div class="edit_form">
-        <form action="{% url 'wiki-edit' filename=my_title %}" method="POST">
+        <form action="{% url 'wiki-edit' filename=my_title %}" method="post">
             {% csrf_token %}
             {{ form.my_markdown_textarea }}
             <br><br>
-            <button type="submit" value="Save">Save</button>
+            <button type="submit" class="submit_btn" value="Save">Save</button>
         </form>
     </div>
-{% endblock %}
+{% endblock body %}

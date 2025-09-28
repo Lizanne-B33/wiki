@@ -1,6 +1,6 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}{{ my_title|safe }}{% endblock %}
+{% block title %} {{ my_title|safe }} {% endblock title %}
 
 {% block body %}
     <h1>Add New Entry</h1>
@@ -9,10 +9,10 @@
             {% csrf_token %}
             <br />
             {{ form.my_title }}
-            <input class=edit_btn type="submit" value="Submit" />
+            <input "class=submit_btn" type="submit" value="Submit" />
             <br />
             <br />
             {{ form.my_markdown_data }}
         </form>
     </div>
-{% endblock %}
+{% endblock body %}
