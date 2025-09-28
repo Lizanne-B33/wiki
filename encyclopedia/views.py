@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 import markdown
@@ -29,7 +29,9 @@ def single_entry_view(request, filename):
             request, "encyclopedia/single_entry.html", context=context
         )
     except:
-        return render(request, "encyclopedia/not_found.html", {"my_title": my_title})
+        return render(
+            request, "encyclopedia/not_found.html", {"my_title": my_title}
+        )
 
 
 def search_view(request):
@@ -66,7 +68,7 @@ def search_view(request):
 def add_view(request):
 
     if request.method == "POST":
-        my_form = forms.entry_form(request.POST)
+        my_form = forms.EntryForm(request.POST)
         if my_form.is_valid():
             my_title = my_form.cleaned_data["my_title"]
             my_title = my_title.replace(" ", "_")
@@ -85,45 +87,37 @@ def add_view(request):
             return render(request, "encyclopedia/error.html")
 
     else:
-        my_form = forms.entry_form()
+        my_form = forms.EntryForm()
         return render(request, "encyclopedia/add.html", {"form": my_form})
 
+
 def edit_view(request, filename):
-    ###
-    # This function renders the entry_form so that the user can add a new entry.
-    # If this is a POST request then process the Form data, else it renders
-    # the form for the user to input data with the existing content ready for edit.
-    ###
-    my_title = filename.rsplit(".", 1)[0]
-    initial_data = {"markdown_data": util.get_entry(my_title)}
+    my_title = filename
 
     if request.method == "POST":
-
-        # Create a form instance and populate it with data from the request
-        my_form = entry_form(request.POST)
-
-        # Check if the form is valid:
+        my_form = forms.EditForm(request.POST)
         if my_form.is_valid():
-
-            # process the data in form.cleaned_data as required
-            my_markdown_data = my_form.cleaned_data["markdown_data"]
-
-            # Calls the save_entry function to save the file.
+            my_markdown_data = my_form.cleaned_data["my_markdown_textarea"]
             add = util.save_entry(my_title, my_markdown_data)
+            return redirect("single_entry", filename=my_title)
     else:
-        edit = util.edit_entry(my_title)
-        if edit != None:
-            my_form = forms.edit_form(request.POST, initial=initial_data)
-            return render(request, "encyclopedia/edit.html", {"form": my_form})
-        else:
-            return render(request, "error")
+        initial_data = {"my_markdown_textarea": util.get_entry(my_title)}
+        print(initial_data)
+        my_form = forms.EditForm(initial=initial_data)
+        return render(
+            request,
+            "encyclopedia/edit.html",
+            {
+                "my_title": my_title,
+                "initial": initial_data,
+                "form": my_form,
+            },
+        )
+
 
 def random_view(request):
     my_title = util.random_entry()
     markdown_content = util.get_entry(my_title)
     html_content = markdown.markdown(markdown_content)
     context = {"single_entry": html_content, "my_title": my_title}
-    return render(
-            request, "encyclopedia/single_entry.html", context=context
-    )
-
+    return render(request, "encyclopedia/single_entry.html", context=context)

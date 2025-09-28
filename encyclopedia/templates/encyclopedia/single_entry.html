@@ -1,11 +1,11 @@
 {% extends "encyclopedia/layout.html" %}
 
-{% block title %}
-    {{ my_title|safe }}
-{% endblock %}
+{% block title %}{{ my_title|safe }}{% endblock %}
 
 {% block body %}
     {{ single_entry|safe }}
     <br />
-    <button type="submit" value="Edit">Edit Entry</button>
+    <br />
+    <br />
+    <a class="edit_btn" href="{% url 'wiki-edit' filename=my_title %}">Edit Entry</a>
 {% endblock %}

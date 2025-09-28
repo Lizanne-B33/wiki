@@ -2,7 +2,7 @@ from django import forms
 
 # Class for creating entries.
 # Includes two fields.  One for the title, one for the content.
-class entry_form(forms.Form):
+class EntryForm(forms.Form):
     my_title = forms.CharField(
         max_length=100,
         widget=forms.TextInput(attrs={"placeholder": "This displays in the tab"}),
@@ -15,14 +15,14 @@ class entry_form(forms.Form):
 
     def clean_data(self):
         data_title = self.cleaned_data["my_title"]
-        data_markdown = self.cleaned_data["my_markdown_data"]
+        data_markdown = self.cleaned_data["my_markdown_textarea"]
         return (data_title, data_markdown)
 
 # Class for editing entries.
 # Includes one field for editing the content.
-class edit_form(forms.Form):
-    my_markdown_data = forms.CharField(widget=forms.Textarea())
+class EditForm(forms.Form):
+    my_markdown_textarea = forms.CharField(widget=forms.Textarea())
 
     def clean_data(self):
-        data_markdown = self.cleaned_data["my_markdown_data"]
+        data_markdown = self.cleaned_data["my_markdown_textarea"]
         return data_markdown
